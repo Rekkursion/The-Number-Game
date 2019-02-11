@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 public class ScoreActivity extends AppCompatActivity {
     Context context = this;
     TextView txvShowScore = null;
+    TextView txvShowGameDiff = null;
     Button btnRetry = null;
     Button btnBackToMenu = null;
     RecyclerView rcvRanking = null;
@@ -31,18 +32,24 @@ public class ScoreActivity extends AppCompatActivity {
 
         Intent fromGamePageIntent = getIntent();
         txvShowScore = findViewById(R.id.txv_show_score);
+        txvShowGameDiff = findViewById(R.id.txv_show_game_diff);
         btnRetry = findViewById(R.id.btn_retry);
         btnBackToMenu = findViewById(R.id.btn_back_to_menu);
         rcvRanking = findViewById(R.id.rcv_ranking);
+        // create sql helper
         sqlHelper = new SQLiteDatabaseHelper(context);
 
         btnRetry.setOnClickListener(buttonOnClickListener);
         btnBackToMenu.setOnClickListener(buttonOnClickListener);
 
+        // player's score
         int score = fromGamePageIntent.getIntExtra(GameManager.INTENT_EXTRA_SCORE_NAME, -1);
+        // game diff of this round
         GameDiff gameDiff = GameManager.getInstance().getGameDiff();
+        // new record
         RankingRecord newRR = new RankingRecord(score, new Date(), gameDiff);
 
+        // set score text view and insert data into database
         if(score >= 0) {
             txvShowScore.setText(String.format("Score: %d.%02d", score / 100, score % 100));
             sqlHelper.insertData(newRR);
@@ -50,10 +57,15 @@ public class ScoreActivity extends AppCompatActivity {
             txvShowScore.setText(R.string.str_show_score_default);
         }
 
+        // set game diff text view
+        txvShowGameDiff.setText(gameDiff.name().substring(gameDiff.name().lastIndexOf('_') + 1));
+
+        // read data from database
         List<RankingRecord> rrList = sqlHelper.readData(gameDiff);
         List<String> itemList = rrList.stream().sorted().map(RankingRecord::toString).collect(Collectors.toList());
         int newRecordIdx = itemList.indexOf(newRR.toString());
 
+        // set recycler view
         rcvRanking.setLayoutManager(new LinearLayoutManager(context));
         rcvRanking.addItemDecoration(new RankingItemDecoration(context, newRecordIdx));
         rcvRanking.setAdapter(new RankingAdapter(itemList));
@@ -61,10 +73,6 @@ public class ScoreActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        txvShowScore = null;
-        btnRetry = null;
-        btnBackToMenu = null;
-
         super.onDestroy();
     }
 

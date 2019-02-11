@@ -6,21 +6,45 @@
     android:padding="10dp"
     tools:context=".ScoreActivity" >
 
-    <!-- show score text view -->
-    <TextView
+    <!-- show game diff and score text views -->
+    <LinearLayout
+        android:id="@+id/lly_text_views_at_score_page"
         android:layout_alignParentTop="true"
-        android:id="@+id/txv_show_score"
-        android:text="@string/str_show_score_default"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/dim_timer_text_size"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <!-- show game diff text view -->
+        <TextView
+            android:id="@+id/txv_show_game_diff"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/dim_timer_text_size"
+            android:textAllCaps="true"
+            android:gravity="start|center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- show score text view -->
+        <TextView
+            android:id="@+id/txv_show_score"
+            android:text="@string/str_show_score_default"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/dim_timer_text_size"
+            android:gravity="end|center_vertical"
+            android:paddingStart="5dp"
+            android:paddingEnd="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
 
     <!-- ranking recycler view -->
     <android.support.v7.widget.RecyclerView
         android:layout_marginTop="10dp"
-        android:layout_below="@id/txv_show_score"
+        android:layout_below="@id/lly_text_views_at_score_page"
         android:id="@+id/rcv_ranking"
         android:layout_gravity="center"
         android:layout_width="match_parent"
