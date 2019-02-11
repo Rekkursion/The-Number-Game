@@ -188,6 +188,10 @@ class GameManager {
         pauseTimer();
     }
 
+    public GameDiff getGameDiff() {
+        return this.gameDiff;
+    }
+
     private void setButtons() {
         gameButtonList.clear();
         this.rlyGameButtons.removeAllViews();

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ScoreActivity extends AppCompatActivity {
     Context context = this;
@@ -28,7 +29,7 @@ public class ScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
 
-        Intent fromGamePage = getIntent();
+        Intent fromGamePageIntent = getIntent();
         txvShowScore = findViewById(R.id.txv_show_score);
         btnRetry = findViewById(R.id.btn_retry);
         btnBackToMenu = findViewById(R.id.btn_back_to_menu);
@@ -38,22 +39,23 @@ public class ScoreActivity extends AppCompatActivity {
         btnRetry.setOnClickListener(buttonOnClickListener);
         btnBackToMenu.setOnClickListener(buttonOnClickListener);
 
-        int score = fromGamePage.getIntExtra(GameManager.INTENT_EXTRA_SCORE_NAME, -1);
+        int score = fromGamePageIntent.getIntExtra(GameManager.INTENT_EXTRA_SCORE_NAME, -1);
+        GameDiff gameDiff = GameManager.getInstance().getGameDiff();
+        RankingRecord newRR = new RankingRecord(score, new Date(), gameDiff);
+
         if(score >= 0) {
             txvShowScore.setText(String.format("Score: %d.%02d", score / 100, score % 100));
-            sqlHelper.insertData(new RankingRecord(score, new Date()));
+            sqlHelper.insertData(newRR);
         } else {
             txvShowScore.setText(R.string.str_show_score_default);
         }
 
-        // TODO: test
-        List<RankingRecord> rrList = sqlHelper.readData();
-        List<String> itemList = new ArrayList<>();
-        for(RankingRecord rr: rrList)
-            itemList.add(rr.getScoreString() + ", " + rr.getRecordDateString());
+        List<RankingRecord> rrList = sqlHelper.readData(gameDiff);
+        List<String> itemList = rrList.stream().sorted().map(RankingRecord::toString).collect(Collectors.toList());
+        int newRecordIdx = itemList.indexOf(newRR.toString());
 
         rcvRanking.setLayoutManager(new LinearLayoutManager(context));
-        rcvRanking.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
+        rcvRanking.addItemDecoration(new RankingItemDecoration(context, newRecordIdx));
         rcvRanking.setAdapter(new RankingAdapter(itemList));
     }
 
