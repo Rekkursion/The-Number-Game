@@ -5,4 +5,5 @@
     <dimen name="dim_timer_text_size">30sp</dimen>
     <dimen name="dim_score_page_button_bar_left_to_right_padding">50dp</dimen>
     <dimen name="dim_imgbtn_size">55dp</dimen>
+    <dimen name="dim_title_text_size">35sp</dimen>
 </resources>

@@ -5,45 +5,64 @@
     android:orientation="horizontal">
 
     <LinearLayout
-        android:id="@+id/lly_menu_btn_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical|center_horizontal"
-        android:orientation="vertical"
-        style="?android:attr/buttonBarStyle" >
+        android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/btn_start_easy"
-            android:textAlignment="center"
-            android:textSize="@dimen/dim_btn_text_size"
-            android:text="@string/str_btn_start_easy"
+        <TextView
+            android:id="@+id/txv_show_game_title"
+            android:text="@string/str_the_number_game_title"
+            android:textSize="@dimen/dim_title_text_size"
+            android:textColor="@color/colorBlack"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="?android:attr/buttonBarButtonStyle" />
-        <Button
-            android:id="@+id/btn_start_normal"
-            android:textAlignment="center"
-            android:textSize="@dimen/dim_btn_text_size"
-            android:text="@string/str_btn_start_normal"
+            android:gravity="center"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:id="@+id/lly_menu_btn_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="?android:attr/buttonBarButtonStyle" />
-        <Button
-            android:id="@+id/btn_start_hard"
-            android:textAlignment="center"
-            android:textSize="@dimen/dim_btn_text_size"
-            android:text="@string/str_btn_start_hard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="?android:attr/buttonBarButtonStyle" />
-        <Button
-            android:id="@+id/btn_start_lunatic"
-            android:textAlignment="center"
-            android:textSize="@dimen/dim_btn_text_size"
-            android:text="@string/str_btn_start_lunatic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical"
+            style="?android:attr/buttonBarStyle" >
+
+            <Button
+                android:id="@+id/btn_start_easy"
+                android:textAlignment="center"
+                android:textSize="@dimen/dim_btn_text_size"
+                android:text="@string/str_btn_start_easy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:attr/buttonBarButtonStyle" />
+            <Button
+                android:id="@+id/btn_start_normal"
+                android:textAlignment="center"
+                android:textSize="@dimen/dim_btn_text_size"
+                android:text="@string/str_btn_start_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:attr/buttonBarButtonStyle" />
+            <Button
+                android:id="@+id/btn_start_hard"
+                android:textAlignment="center"
+                android:textSize="@dimen/dim_btn_text_size"
+                android:text="@string/str_btn_start_hard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:attr/buttonBarButtonStyle" />
+            <Button
+                android:id="@+id/btn_start_lunatic"
+                android:textAlignment="center"
+                android:textSize="@dimen/dim_btn_text_size"
+                android:text="@string/str_btn_start_lunatic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:attr/buttonBarButtonStyle" />
+        </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>
