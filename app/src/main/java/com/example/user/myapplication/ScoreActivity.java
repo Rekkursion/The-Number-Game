@@ -64,6 +64,7 @@ public class ScoreActivity extends AppCompatActivity {
         txvShowScore = null;
         btnRetry = null;
         btnBackToMenu = null;
+
         super.onDestroy();
     }
 

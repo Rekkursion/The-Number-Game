@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
@@ -76,12 +79,22 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(context, "Some error happened.", Toast.LENGTH_SHORT).show();
                 break;
         }
+
+        btnStartEasy.setEnabled(true);
+        btnStartNormal.setEnabled(true);
+        btnStartHard.setEnabled(true);
+        btnStartLunatic.setEnabled(true);
     }
 
     private void initViews() {
         View.OnClickListener onStartBtnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                btnStartEasy.setEnabled(false);
+                btnStartNormal.setEnabled(false);
+                btnStartHard.setEnabled(false);
+                btnStartLunatic.setEnabled(false);
+
                 Intent intent2GamePage = new Intent(context, GameActivity.class);
 
                 switch(view.getId()) {
