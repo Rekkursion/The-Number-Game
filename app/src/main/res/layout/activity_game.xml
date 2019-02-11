@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <!-- game buttons, count down and pause page buttons layout -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="450dp">
+
+            <!-- relative layout of game buttons -->
+            <RelativeLayout
+                android:id="@+id/rly_game_buttons"
+                android:gravity="center"
+                android:foregroundGravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </RelativeLayout>
+
+            <!-- count down text views -->
+            <TextView
+                android:id="@+id/txv_count_down_3"
+                android:text="@string/str_count_down_3"
+                android:textSize="@dimen/dim_count_down_text_size"
+                android:textColor="@color/colorBlack"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/txv_count_down_2"
+                android:text="@string/str_count_down_2"
+                android:textSize="@dimen/dim_count_down_text_size"
+                android:textColor="#FF000000"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/txv_count_down_1"
+                android:text="@string/str_count_down_1"
+                android:textSize="@dimen/dim_count_down_text_size"
+                android:textColor="#FF000000"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/txv_count_down_go"
+                android:text="@string/str_count_down_go"
+                android:textSize="@dimen/dim_count_down_text_size"
+                android:textColor="#FF000000"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!-- pause page buttons -->
+            <LinearLayout
+                android:id="@+id/lly_pause_page_buttons"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                style="?android:attr/buttonBarStyle" >
+
+                <Button
+                    android:id="@+id/btn_resume_at_pause_page"
+                    android:text="@string/str_btn_resume"
+                    android:textSize="@dimen/dim_btn_text_size"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/buttonBarButtonStyle" />
+
+                <Button
+                    android:id="@+id/btn_retry_at_pause_page"
+                    android:text="@string/str_btn_retry"
+                    android:textSize="@dimen/dim_btn_text_size"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/buttonBarButtonStyle" />
+
+                <Button
+                    android:id="@+id/btn_back_to_menu_at_pause_page"
+                    android:text="@string/str_btn_back_to_menu"
+                    android:textSize="@dimen/dim_btn_text_size"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/buttonBarButtonStyle" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- timer and penalty time layout -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp">
+
+            <!-- show timer -->
+            <TextView
+                android:id="@+id/txv_timer"
+                android:text="@string/str_timer_default"
+                android:textSize="@dimen/dim_timer_text_size"
+                android:textColor="#FF000000"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- when player do a wrong click, show penalty time with an animation -->
+            <TextView
+                android:id="@+id/txv_penalty_time"
+                android:visibility="invisible"
+                android:text="@string/str_wrong_click_penalty_time"
+                android:textSize="@dimen/dim_timer_text_size"
+                android:textColor="#FFFF0000"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingTop="50dp"
+                android:paddingBottom="0dp"
+                android:paddingStart="150dp"
+                android:paddingEnd="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <!-- image buttons (retry and pause) layout -->
+        <LinearLayout
+            android:id="@+id/lly_imgbtn_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <!-- retry image button -->
+            <ImageButton
+                android:id="@+id/imgbtn_retry"
+                android:src="@drawable/retry"
+                android:contentDescription="@string/str_btn_retry"
+                android:background="@color/colorTransparent"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:layout_width="@dimen/dim_imgbtn_size"
+                android:layout_height="@dimen/dim_imgbtn_size" />
+
+            <!-- pause image button -->
+            <ImageButton
+                android:id="@+id/imgbtn_pause"
+                android:src="@drawable/pause"
+                android:contentDescription="@string/str_btn_pause"
+                android:background="@color/colorTransparent"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:layout_width="@dimen/dim_imgbtn_size"
+                android:layout_height="@dimen/dim_imgbtn_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

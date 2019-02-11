@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/lly_menu_btn_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        style="?android:attr/buttonBarStyle" >
+
+        <Button
+            android:id="@+id/btn_start_easy"
+            android:textAlignment="center"
+            android:textSize="@dimen/dim_btn_text_size"
+            android:text="@string/str_btn_start_easy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button
+            android:id="@+id/btn_start_normal"
+            android:textAlignment="center"
+            android:textSize="@dimen/dim_btn_text_size"
+            android:text="@string/str_btn_start_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button
+            android:id="@+id/btn_start_hard"
+            android:textAlignment="center"
+            android:textSize="@dimen/dim_btn_text_size"
+            android:text="@string/str_btn_start_hard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button
+            android:id="@+id/btn_start_lunatic"
+            android:textAlignment="center"
+            android:textSize="@dimen/dim_btn_text_size"
+            android:text="@string/str_btn_start_lunatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+
+</LinearLayout>

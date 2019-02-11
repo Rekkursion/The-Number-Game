@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".ScoreActivity" >
+
+    <!-- show score text view -->
+    <TextView
+        android:layout_alignParentTop="true"
+        android:id="@+id/txv_show_score"
+        android:text="@string/str_show_score_default"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/dim_timer_text_size"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- ranking recycler view -->
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/txv_show_score"
+        android:id="@+id/rcv_ranking"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <!-- retry and back to menu buttons layout -->
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        style="?android:attr/buttonBarStyle" >
+
+        <!-- retry button -->
+        <Button
+            android:id="@+id/btn_retry"
+            android:text="@string/str_btn_retry"
+            android:textSize="@dimen/dim_btn_text_size"
+            android:gravity="center"
+            android:paddingStart="@dimen/dim_score_page_button_bar_left_to_right_padding"
+            android:paddingEnd="@dimen/dim_score_page_button_bar_left_to_right_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <!-- back to menu button -->
+        <Button
+            android:id="@+id/btn_back_to_menu"
+            android:text="@string/str_btn_back"
+            android:textSize="@dimen/dim_btn_text_size"
+            android:gravity="center"
+            android:paddingStart="@dimen/dim_score_page_button_bar_left_to_right_padding"
+            android:paddingEnd="@dimen/dim_score_page_button_bar_left_to_right_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+</RelativeLayout>
